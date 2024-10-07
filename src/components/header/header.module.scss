@@ -1,0 +1,66 @@
+@import '../../style/\ variables';
+
+.header {
+    background-color: $white;
+    padding: 16px 0;
+    display: flex;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        .image {
+            margin-right: 8px;
+        }
+
+        .title {
+            font-family: 'inter', sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            color: #333153;
+
+            b {
+                font-size: 24px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .navigate {
+        &__list {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin-top: 4px;
+
+                &:last-child {
+                    margin-left: 20px;
+                    margin-right: 0;
+                }
+
+                .profile__img {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 100%;
+                    border: 1px solid black;
+                    margin-right: 8px;
+                }
+
+                .name {
+                    font-weight: 500;
+                    color: $black-gray;
+                }
+
+            }
+        }
+    }
+
+}
