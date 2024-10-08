@@ -12,6 +12,7 @@ export const User: React.FC = () => {
 
     const dispatch = useAppDispatch()
     const { user, isLoading } = useAppSelector(state => state.userReducer)
+    const currentUser = user[0]
 
     const { id } = useParams()
 
@@ -30,7 +31,8 @@ export const User: React.FC = () => {
             </button>
 
             <section>
-                {isLoading ? <span>Загрузка...</span> : <CartUser {...user} />}
+
+                {isLoading ? <span>Загрузка...</span> : <CartUser {...currentUser} />}
 
             </section>
         </Container>

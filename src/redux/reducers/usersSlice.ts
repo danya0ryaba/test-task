@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { BASE_URL } from "../../constants/constants"
-import { allUserState, User } from "../../types/types"
+import { allUserState, UserType } from "../../types/types"
 import { isError } from "../../utils/is-error"
 
 const initialState: allUserState = {
@@ -10,7 +10,7 @@ const initialState: allUserState = {
     error: null
 }
 
-export const fetchUsers = createAsyncThunk<User[], undefined, { rejectValue: string }>(
+export const fetchUsers = createAsyncThunk<UserType[], undefined, { rejectValue: string }>(
     'users/fetchUsers', async (_, { rejectWithValue }) => {
 
         const response = await fetch(`${BASE_URL}?_limit=6&_page=1`)
