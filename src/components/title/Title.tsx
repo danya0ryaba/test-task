@@ -6,7 +6,8 @@ type TitleType = {
 }
 
 export const Title: React.FC<TitleType> = ({ children }) => {
-    return (
+    return <>
         <h2 className={s.title}>{children}</h2>
-    )
+        <hr />
+    </>
 }

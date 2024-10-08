@@ -1,0 +1,51 @@
+@import '../../style/\ variables';
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    padding: 40px;
+    border-radius: 16px;
+
+
+
+    &__wrapper {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 310px;
+
+        img {
+            max-width: 84px;
+            min-height: 84px;
+            margin-bottom: 20px;
+        }
+
+        .close {
+
+            width: 100%;
+
+            img {
+                cursor: pointer;
+                width: 28px;
+                height: 28px;
+                position: absolute;
+                right: 18px;
+                top: 0;
+            }
+        }
+
+        span {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+    }
+
+
+}

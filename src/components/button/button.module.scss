@@ -1,0 +1,15 @@
+@import '../../style/\ variables';
+
+.button {
+    padding: 12px 42px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: $white;
+    background-color: $black;
+    transition: 0.3s all;
+
+    &:hover {
+        background-color: $white;
+        color: $black-gray;
+    }
+}

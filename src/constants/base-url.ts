@@ -1,1 +1,0 @@
-export const BASE_URL = 'https://jsonplaceholder.typicode.com/users?_limit=6&_page=1'

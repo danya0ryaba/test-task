@@ -1,12 +1,38 @@
 import React from 'react'
 import { Container } from '../components/container/Container'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '../redux/hooks/redux-hooks'
+import { fetchUser } from '../redux/reducers/userSlice'
+import arrow from '../assets/arrow.svg'
+import { CartUser } from '../components/user/CartUser'
 
 export const User: React.FC = () => {
-    // динамически вытащить id и по нему делать запрос(через createAsyncThunk) и тд
+
+    const navigate = useNavigate()
+
+    const dispatch = useAppDispatch()
+    const { user, isLoading } = useAppSelector(state => state.userReducer)
+
+    const { id } = useParams()
+
+    React.useEffect(() => {
+        if (id) {
+            dispatch(fetchUser(Number(id)))
+        }
+    }, [dispatch, id])
 
     return (
         <Container>
-            <div>User</div>
+
+            <button onClick={() => navigate(-1)}>
+                <img src={`${arrow}`} alt="arrow" />
+                <span>Назад</span>
+            </button>
+
+            <section>
+                {isLoading ? <span>Загрузка...</span> : <CartUser {...user} />}
+
+            </section>
         </Container>
     )
 }

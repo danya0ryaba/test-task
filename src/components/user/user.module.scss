@@ -1,0 +1,64 @@
+@import '../../style/\ variables';
+
+.user {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__profile {
+        border-radius: 16px;
+        background-color: $white;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+
+        &_image {
+            border-radius: 8px;
+            max-width: 280px;
+            max-height: 485px;
+            overflow: hidden;
+            margin-bottom: 40px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+
+        &_info {
+            display: flex;
+            flex-direction: column;
+
+
+            .data {
+                color: $black;
+                font-weight: 600;
+            }
+
+            .input {
+                padding: 7px 0;
+                color: $gray;
+                border-bottom: 1px solid $light-gray;
+                border-radius: 1px;
+                margin-bottom: 24px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+        }
+
+    }
+
+    &__form {
+        width: 100%;
+        max-width: 760px;
+        padding: 40px;
+        background-color: $white;
+        border-radius: 16px;
+    }
+
+}

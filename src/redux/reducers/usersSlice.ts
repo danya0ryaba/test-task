@@ -1,40 +1,11 @@
-import { createAsyncThunk, createSlice, PayloadAction, UnknownAction } from "@reduxjs/toolkit"
-import { BASE_URL } from "../../constants/base-url"
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { BASE_URL } from "../../constants/constants"
+import { allUserState, User } from "../../types/types"
+import { isError } from "../../utils/is-error"
 
-
-type User = {
-    id: number,
-    name: string,
-    username: string,
-    email: string,
-    address: {
-        street: string,
-        suite: string,
-        city: string,
-        zipcode: string,
-        geo: {
-            lat: string,
-            lng: string
-        }
-    },
-    phone: string,
-    website: string,
-    company: {
-        name: string,
-        catchPhrase: string,
-        bs: string
-    }
-}
-
-export type State = {
-    users: User[],
-    isLoading: boolean,
-    error: null | string
-}
-
-
-const initialState: State = {
+const initialState: allUserState = {
     users: [],
+    usersArchive: [],
     isLoading: false,
     error: null
 }
@@ -42,7 +13,7 @@ const initialState: State = {
 export const fetchUsers = createAsyncThunk<User[], undefined, { rejectValue: string }>(
     'users/fetchUsers', async (_, { rejectWithValue }) => {
 
-        const response = await fetch(`${BASE_URL}`)
+        const response = await fetch(`${BASE_URL}?_limit=6&_page=1`)
 
         if (!response.ok) {
             return rejectWithValue('Server error!')
@@ -56,11 +27,31 @@ export const fetchUsers = createAsyncThunk<User[], undefined, { rejectValue: str
 export const usersSlice = createSlice({
     name: 'users',
     initialState,
-    reducers: {},
+    reducers: {
+        putInArchive: (state, { payload }) => {
+            const user = state.users.find(user => user.id === payload)
+            if (user) {
+                user.active = true
+                state.usersArchive.push(user)
+            }
+            state.users = state.users.filter(user => user.id !== payload)
+        },
+        removeUser: (state, { payload }) => {
+            state.users = state.users.filter(user => user.id !== payload)
+        },
+        activeUser: (state, { payload }) => {
+            const user = state.usersArchive.find(user => user.id === payload)
+            state.usersArchive = state.usersArchive.filter(user => user.id !== payload)
+            if (user) {
+                user.active = false
+                state.users.push(user)
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchUsers.fulfilled, (state, { payload }) => {
-                state.users = payload
+                state.users = payload.map(user => ({ ...user, active: false }))
                 state.error = null
                 state.isLoading = false
             })
@@ -75,8 +66,8 @@ export const usersSlice = createSlice({
     }
 })
 
-function isError(action: UnknownAction) {
-    return action.type.endsWith("rejected")
-}
+
+
+export const { putInArchive, removeUser, activeUser } = usersSlice.actions
 
 export default usersSlice.reducer

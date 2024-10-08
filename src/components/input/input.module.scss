@@ -1,0 +1,24 @@
+@import '../../style/\ variables';
+
+.input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    &__label {
+        cursor: pointer;
+        margin-bottom: 10px;
+        color: $black;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__input {
+        width: 100%;
+        max-width: 420px;
+        padding: 10px 16px;
+        border-radius: 50px;
+        border: 2px solid $light-gray;
+
+    }
+}
