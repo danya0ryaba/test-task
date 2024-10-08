@@ -1,10 +1,10 @@
 import React from 'react'
 import s from './cart.module.scss'
-import { User } from '../../types/types'
+import { UserType } from '../../types/types'
 import { Dropdown } from '../dropdown/Dropdown'
 import { DropdownSecond } from '../dropdown/DropdownSecond'
 
-export const Cart: React.FC<User> = ({ active, name, id, ...rest }) => {
+export const Cart: React.FC<UserType> = ({ active, name, id, ...rest }) => {
 
     const [dropdown, setDropdown] = React.useState(false)
 
