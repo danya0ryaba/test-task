@@ -1,0 +1,20 @@
+@import '../../style/\ variables';
+
+.home {
+    margin-bottom: 198px;
+    padding: 40px 0 198px 0;
+}
+
+.carts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+@media (max-width:760px) {
+    .carts {
+        justify-content: space-around;
+    }
+}

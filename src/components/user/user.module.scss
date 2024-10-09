@@ -3,7 +3,6 @@
 .user {
     margin-top: 24px;
     display: flex;
-    flex-wrap: wrap;
 
     &__profile {
         border-radius: 16px;
@@ -19,6 +18,8 @@
             max-height: 485px;
             overflow: hidden;
             margin-bottom: 40px;
+            width: 100%;
+            height: 100%;
 
             img {
                 width: 100%;
@@ -38,7 +39,7 @@
             }
 
             .input {
-                padding: 7px 0;
+                padding-bottom: 12px;
                 color: $gray;
                 border-bottom: 1px solid $light-gray;
                 border-radius: 1px;
@@ -61,4 +62,49 @@
         border-radius: 16px;
     }
 
+}
+
+
+@media (max-width:618px) {
+    .user {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &__profile {
+            margin: 0 0 32px 0;
+            padding: 28px;
+
+            &_image {
+                max-width: 287px;
+                max-height: 187px;
+                margin-bottom: 24px;
+            }
+
+            &_info {
+
+                .data {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                hr {
+                    margin: 8px 0 20px 0;
+                }
+
+                .input {
+                    padding-bottom: 8px;
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                }
+
+            }
+
+        }
+
+        &__form {
+            max-width: 343px;
+            padding: 28px;
+        }
+
+    }
 }

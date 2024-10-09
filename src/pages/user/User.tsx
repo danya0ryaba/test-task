@@ -1,10 +1,11 @@
 import React from 'react'
-import { Container } from '../components/container/Container'
+import { Container } from '../../components/container/Container'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../redux/hooks/redux-hooks'
-import { fetchUser } from '../redux/reducers/userSlice'
-import arrow from '../assets/arrow.svg'
-import { CartUser } from '../components/user/CartUser'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/redux-hooks'
+import { fetchUser } from '../../redux/reducers/userSlice'
+import arrow from '../../assets/arrow.svg'
+import { CartUser } from '../../components/user/CartUser'
+import './user.scss'
 
 export const User: React.FC = () => {
 
@@ -25,15 +26,13 @@ export const User: React.FC = () => {
     return (
         <Container>
 
-            <button onClick={() => navigate(-1)}>
+            <button className='btn__back' onClick={() => navigate(-1)}>
                 <img src={`${arrow}`} alt="arrow" />
                 <span>Назад</span>
             </button>
 
             <section>
-
                 {isLoading ? <span>Загрузка...</span> : <CartUser {...currentUser} />}
-
             </section>
         </Container>
     )

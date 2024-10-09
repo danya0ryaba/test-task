@@ -1,12 +1,11 @@
 import React from 'react'
-// import reactLogo from './assets/react.svg'
 import './style/index.scss'
 import { useAppDispatch } from './redux/hooks/redux-hooks'
 import { fetchUsers } from './redux/reducers/usersSlice'
 import { Route, Routes } from 'react-router-dom'
 import { Layout } from './layout/Layout'
-import { Home } from './pages/Home'
-import { User } from './pages/User'
+import { Home } from './pages/home/Home'
+import { User } from './pages/user/User'
 import { Error } from './pages/Error'
 
 

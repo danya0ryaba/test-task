@@ -18,7 +18,7 @@ export const Cart: React.FC<UserType> = ({ active, name, id, ...rest }) => {
         <div className={s.cart__image}>
             <img
                 className={active ? s.img_archive : ''}
-                src="https://avatars.dzeninfra.ru/get-zen_doc/3531468/pub_63cf97d82533f13a1f9ca948_63cf9a1a3d9be32e0f9cb491/scale_1200" alt="user" />
+                src="https://placeholder.apptor.studio/300/300/product1.png" alt="user" />
         </div>
 
         <div className={s.cart__info}>
@@ -36,7 +36,7 @@ export const Cart: React.FC<UserType> = ({ active, name, id, ...rest }) => {
                     {active && dropdown && <DropdownSecond setDropdown={setDropdown} id={id} />}
                 </div>
 
-                <span className={active ? `${s.company__archive}` : ''}>{rest.company.name}</span>
+                <span className={active ? `${s.company__archive}` : `${s.compony}`}>{rest.company.name}</span>
 
             </div>
 

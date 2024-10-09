@@ -13,3 +13,10 @@
         color: $black-gray;
     }
 }
+
+@media (max-width:400px) {
+    .button {
+        width: 100%;
+        font-size: 14px;
+    }
+}

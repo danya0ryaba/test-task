@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
                                 <img src={`${bell}`} alt="bell" />
                             </li>
                             <li>
-                                <img className={s.profile__img} src={``} alt="" />
+                                <img className={s.profile__img} src={`https://placeholder.apptor.studio/30/30/product1.png`} alt="photo user" />
                                 <span className={s.name}>Ivan1234</span>
                             </li>
                         </ul>

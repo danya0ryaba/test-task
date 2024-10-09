@@ -1,7 +1,6 @@
 import React from 'react'
 import s from './user.module.scss'
 import { UserType } from '../../types/types'
-import user from '../../assets/user.png'
 import { Title } from '../title/Title'
 import { InputCustom } from '../input/Input'
 import { Button } from '../button/Button'
@@ -39,7 +38,7 @@ export const CartUser: React.FC<UserType> = () => {
             <div className={s.user__profile}>
 
                 <div className={s.user__profile_image}>
-                    <img src={`${user}`} alt="profile" />
+                    <img src="https://placeholder.apptor.studio/300/300/product1.png" alt="profile" />
                 </div>
 
                 <div className={s.user__profile_info}>

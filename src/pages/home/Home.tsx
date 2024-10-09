@@ -1,9 +1,9 @@
 import React from 'react'
-import { Container } from '../components/container/Container'
-import { Title } from '../components/title/Title'
-import { Cart } from '../components/cart/Cart'
+import { Container } from '../../components/container/Container'
+import { Title } from '../../components/title/Title'
+import { Cart } from '../../components/cart/Cart'
 import s from './home.module.scss'
-import { useAppSelector } from '../redux/hooks/redux-hooks'
+import { useAppSelector } from '../../redux/hooks/redux-hooks'
 
 export const Home: React.FC = () => {
 
