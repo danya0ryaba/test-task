@@ -44,7 +44,4 @@ export const userSlice = createSlice({
     }
 })
 
-
-// export const { putInArchive, removeUser, activeUser } = usersSlice.actions
-
 export default userSlice.reducer

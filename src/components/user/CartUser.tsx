@@ -7,29 +7,12 @@ import { Button } from '../button/Button'
 import { createPortal } from 'react-dom'
 import { Popup } from '../popup/Popup'
 
-
 export const CartUser: React.FC<UserType> = () => {
 
     const [popup, setPopup] = React.useState(false)
 
-    const [inputName, setInputName] = React.useState('')
-    const [inputLogin, setInputLogin] = React.useState('')
-    const [inputMail, setInputMail] = React.useState('')
-    const [inputCity, setInputCity] = React.useState('')
-    const [inputPhone, setInputPhone] = React.useState('')
-    const [inputCompany, setInputCompany] = React.useState('')
-
-
     const onHandlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (inputName.length > 0 &&
-            inputLogin.length > 0 &&
-            inputMail.length > 0 &&
-            inputCity.length > 0 &&
-            inputPhone.length > 0 &&
-            inputCompany.length > 0) {
-            setPopup(true)
-        }
     }
 
     return (
@@ -57,12 +40,12 @@ export const CartUser: React.FC<UserType> = () => {
 
                 <form onSubmit={onHandlerSubmit} className={s.form} action="">
 
-                    <InputCustom inputValue={inputName} setInput={setInputName} id='name' label='Имя' />
-                    <InputCustom inputValue={inputLogin} setInput={setInputLogin} id='login' label='Никнейм' />
-                    <InputCustom inputValue={inputMail} setInput={setInputMail} id='mail' label='Почта' type='email' />
-                    <InputCustom inputValue={inputCity} setInput={setInputCity} id='city' label='Город' />
-                    <InputCustom inputValue={inputPhone} setInput={setInputPhone} id='phone' type='tel' label='Телефон' />
-                    <InputCustom inputValue={inputCompany} setInput={setInputCompany} id='company' label='Название компании' />
+                    <InputCustom id='name' label='Имя' />
+                    {/* <InputCustom2 id='login' label='Никнейм' />
+                    <InputCustom2 id='mail' label='Почта' type='email' />
+                    <InputCustom2 id='city' label='Город' />
+                    <InputCustom2 id='phone' type='tel' label='Телефон' />
+                    <InputCustom2 id='company' label='Название компании' /> */}
 
                     <Button>Сохранить</Button>
 

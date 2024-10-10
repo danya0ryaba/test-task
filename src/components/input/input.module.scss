@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
+    position: relative;
+    max-width: 420px;
 
     &__label {
         cursor: pointer;
@@ -13,12 +15,30 @@
         font-weight: 600;
     }
 
+    &__for_close {
+        position: relative;
+    }
+
     &__input {
         width: 100%;
-        max-width: 420px;
         padding: 10px 16px;
         border-radius: 50px;
         border: 2px solid $light-gray;
+        z-index: 100;
+
+        &:focus {
+            color: $gray;
+        }
+    }
+
+    .closeSvg {
+        z-index: 10;
+        max-width: 24px;
+        max-height: 24px;
+        background-color: transparent;
+        position: absolute;
+        top: 9px;
+        right: 8px;
     }
 }
 
