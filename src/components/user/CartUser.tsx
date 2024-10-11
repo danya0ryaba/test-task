@@ -2,17 +2,34 @@ import React from 'react'
 import s from './user.module.scss'
 import { UserType } from '../../types/types'
 import { Title } from '../title/Title'
-import { InputCustom } from '../input/Input'
+import { InputCustomWuthRef } from '../input/Input'
 import { Button } from '../button/Button'
 import { createPortal } from 'react-dom'
 import { Popup } from '../popup/Popup'
 
+// переписать форму
+
 export const CartUser: React.FC<UserType> = () => {
+
+    const refName = React.useRef<null | HTMLInputElement>(null)
+    const refLogin = React.useRef<null | HTMLInputElement>(null)
+    const refMail = React.useRef<null | HTMLInputElement>(null)
+    const refCity = React.useRef<null | HTMLInputElement>(null)
+    const refPhone = React.useRef<null | HTMLInputElement>(null)
+    const refCompany = React.useRef<null | HTMLInputElement>(null)
 
     const [popup, setPopup] = React.useState(false)
 
+
+    function checkedLengthInput(value: string) {
+        return value.length > 1 ? true : false
+    }
+
     const onHandlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
         e.preventDefault();
+
+        console.log(refName.current?.value)
     }
 
     return (
@@ -40,12 +57,13 @@ export const CartUser: React.FC<UserType> = () => {
 
                 <form onSubmit={onHandlerSubmit} className={s.form} action="">
 
-                    <InputCustom id='name' label='Имя' />
-                    {/* <InputCustom2 id='login' label='Никнейм' />
-                    <InputCustom2 id='mail' label='Почта' type='email' />
-                    <InputCustom2 id='city' label='Город' />
-                    <InputCustom2 id='phone' type='tel' label='Телефон' />
-                    <InputCustom2 id='company' label='Название компании' /> */}
+                    <InputCustomWuthRef ref={refName} id='name' label='Имя' />
+                    <InputCustomWuthRef ref={refLogin} id='login' label='Никнейм' />
+                    <InputCustomWuthRef ref={refMail} id='mail' label='Почта' type='email' />
+                    <InputCustomWuthRef ref={refCity} id='city' label='Город' />
+                    <InputCustomWuthRef ref={refPhone} id='phone' type='tel' label='Телефон' />
+                    <InputCustomWuthRef ref={refCompany} id='company' label='Название компании' />
+
 
                     <Button>Сохранить</Button>
 
